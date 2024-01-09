@@ -1,4 +1,3 @@
-
 var config = {
     type: Phaser.AUTO,
     width: 2000, // Set a default width
@@ -56,11 +55,11 @@ function preload() {
     this.load.spritesheet('redbouncyenemy', 'redbouncyenemy.png', { frameWidth: 128, frameHeight: 128 });
     this.load.image('purpleLaser', 'laser.png'); // Replace 'purpleLaser.png' with your actual purple laser image file
 
-
    this.load.on('complete', function () {
         // Hide the preloader div
         document.getElementById('preloader').style.display = 'none';
     });
+
 
 }
 
@@ -541,8 +540,7 @@ this.physics.add.overlap(player, [redbouncyenemy1, redbouncyenemy2, redbouncyene
       });
 
       jumpButton.on('pointerdown', function () {
-          if (player.body.onFloor() && (cursors.left.isDown || cursors.right.isDown)) {
-              // Jump only if the player is on the floor and left or right arrow key is pressed
+          if (player.body.onFloor()) {
               player.setVelocityY(-800);
           }
       });
@@ -754,9 +752,9 @@ if (!gameOver) {
  hpBar.x = player.x - 50; // Adjust the offset based on your preference
     hpBar.y = player.y - 100;
     // Update the position of the on-screen buttons with the camera
-leftButton.x = this.cameras.main.worldView.left + 150;
-rightButton.x = this.cameras.main.worldView.left + 250;
-jumpButton.x = this.cameras.main.worldView.right - 250;
+leftButton.x = this.cameras.main.worldView.left + 50;
+rightButton.x = this.cameras.main.worldView.left + 150;
+jumpButton.x = this.cameras.main.worldView.right - 150;
 
 leftButton.y = this.cameras.main.worldView.bottom - 100;
 rightButton.y = this.cameras.main.worldView.bottom - 100;
